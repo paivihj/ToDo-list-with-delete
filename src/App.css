@@ -1,5 +1,42 @@
+table {
+  margin: auto;
+}
+
+th {
+  border-bottom: 0.2px solid lightgrey;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+td {
+  border-bottom: 0.2px solid lightgrey;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+p {
+  text-align: left;
+  margin-bottom: 12px;
+  margin-top: -18px;
+  background-color: white;
+  max-width: fit-content;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
 .App {
   text-align: center;
+}
+
+.input {
+  margin: auto;
+  margin-top: 20px;
+  border: 0.3px solid grey;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 590px;
 }
 
 .App-logo {
