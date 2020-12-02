@@ -31,7 +31,8 @@ p {
 .input {
   margin: auto;
   margin-top: 20px;
-  border: 0.3px solid grey;
+  border: 30px solid;
+  border-color: #282c34;;
   padding-bottom: 20px;
   padding-top: 5px;
   padding-left: 15px;
@@ -41,6 +42,20 @@ p {
 
 .button {
   margin: 5;
+}
+
+.Box {
+  text-align: center;
+  background-color: #282c34;
+  width: 30%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {

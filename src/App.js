@@ -6,17 +6,23 @@ import'ag-grid-community/dist/styles/ag-theme-material.css';
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import DateFnsUtils from '@date-io/date-fns'; 
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import Box from '@material-ui/core/Box';
 
 function App() {
   const [todo, setTodo] = useState({description:'', date: '', status:''});
   const [todos, setTodos] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [value, setValue] = useState('home');
 
   const gridRef = useRef();
+
+  const changeValue = (event, value) => {
+    setValue(value);
+  };
 
   const inputChanged = (event) => {
     setTodo({...todo, [event.target.name]: event.target.value});
@@ -52,12 +58,18 @@ function App() {
   return (
     <div className="App">
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" >
-            To Do-list
-          </Typography>
-        </Toolbar>
+        <Tabs value={value} onChange={changeValue}>
+          <Tab value="home" label="Home" />
+          <Tab value="todo" label="My Todos" />
+        </Tabs>
       </AppBar>
+      {value === 'home' && 
+      <div>
+        <Box className="Box">
+        WELCOME!
+        </Box>
+      </div>}
+      {value === 'todo' &&
       <div className="input">
         <TextField style={{margin: 5}} label="Description" 
           name="description" value={todo.description} 
@@ -92,7 +104,7 @@ function App() {
             rowData={todos}>
           </AgGridReact>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
