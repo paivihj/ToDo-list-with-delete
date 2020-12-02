@@ -48,6 +48,10 @@ function App() {
     setTodos(newTodoList);
   };
 
+  const clearList = () => {
+    setTodos([]);
+  };
+
   const columns = [
     { headerName: 'Description', field: 'description', sortable: true, filter:true, floatingFilter:true },
     { headerName: 'Date', field: 'date', sortable: true, filter:true, floatingFilter: true },
@@ -93,6 +97,11 @@ function App() {
           style={{margin: 5, marginTop: 10}} size="small" 
           variant="contained" color="secondary" 
           onClick={deleteTodo}>Delete
+        </Button>
+        <Button 
+          style={{margin: 5, marginTop: 10}} size="small" 
+          variant="outlined" color="secondary" 
+          onClick={clearList}>Clear List
         </Button>
         <div className="ag-theme-material" style={{width: '80%', height:'700px', margin:'auto'}}>
           <AgGridReact 
