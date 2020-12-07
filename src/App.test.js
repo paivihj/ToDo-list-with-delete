@@ -11,7 +11,7 @@ test('renders todotable', () => {
   expect(todotable.container).toHaveTextContent('Go to coffee');
 });
 
-test('add todo', () => {
+test('add and clear todo', () => {
   const { container, getByText, getByLabelText } = render(<App />);
   
   const desc = getByLabelText('Description:');
@@ -24,4 +24,9 @@ test('add todo', () => {
   fireEvent.click(button);
 
   expect(container).toHaveTextContent('Go to coffee');
-})
+
+  const clear = getByText('Clear')
+  fireEvent.click(clear);
+
+  expect(container).not.toHaveTextContent('Go to coffee');
+});

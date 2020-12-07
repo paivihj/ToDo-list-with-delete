@@ -26,6 +26,10 @@ function App() {
     setTodos(newTodoList);
   };
 
+  const clearTodos = () => {
+    setTodos([]);
+  }
+
   return (
     <div className="App">
       <div className="input">
@@ -33,6 +37,7 @@ function App() {
         <label id="desc-label">Description:</label><input aria-labelledby="desc-label" name="description" value={todo.description} onChange={descriptionChanged} />
         <label id="date-label">Date:</label><input aria-labelledby="date-label" name="date" value={todo.date} onChange={dateChanged} />
         <button onClick={addTodo}>Add</button>
+        <button onClick={clearTodos}>Clear</button>
       </div>
       <Todotable todos={todos} deleteTodo={deleteTodo} />
     </div>
